@@ -64,3 +64,15 @@ get("/payment/results") do
 
   erb(:payment_results)
 end
+
+get("/random/new") do
+  erb(:new_random_calc)
+end
+
+get("/random/results") do
+  @user_min = params.fetch("user_min").to_f
+  @user_max = params.fetch("user_max").to_f
+  @random_number = rand(@user_min..@user_max).to_f
+
+  erb(:random_results)
+end
