@@ -48,6 +48,11 @@ get("/payment/new") do
 end
 
 get("/payment/results") do
+  @display_apr = params.fetch("users_apr")
+  @display_years = params.fetch("users_years")
+  @display_principal = params.fetch("users_principal")
+  
+  
   @the_apr = params.fetch("users_apr").to_f / 1200
   @the_num_years = params.fetch("users_years").to_i * 12
   @the_principal = params.fetch("users_principal").to_f
